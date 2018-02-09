@@ -2,7 +2,7 @@ from selenium import webdriver
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
-    
+
     def setUp(self):
         self.browser = webdriver.Firefox()
         #browser = webdriver.Firefox()
@@ -16,7 +16,10 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
 
         # She notices the page title and header mention to-do lists
-        self.assertIn ('To-do', self.browser.title)
+        #try:
+        self.assertIn ('To-Do', self.browser.title)
+        #except:
+        #   print('Hello World!')
         self.fail('Finish the test!')
 
         # She is invited to enter a to-do item straight away
