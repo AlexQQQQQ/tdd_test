@@ -41,7 +41,6 @@ class NewVisitorTest(LiveServerTestCase):
         # Edith has heard about a cool new online to-do app. She goes 
         # to check out its homepage
         self.browser.get(self.live_server_url)
-
         # She notices the page title and header mention to-do lists
         #try:
         self.assertIn ('To-Do', self.browser.title)
@@ -62,9 +61,14 @@ class NewVisitorTest(LiveServerTestCase):
         # is tying fly-fishing lures)
         inputbox.send_keys('Buy peacock feathers')
 
+
        # When she hits enter, the page updates, and now the page lists
        # "1: Buy peacock features" as an iten in a to-do list
         inputbox.send_keys(Keys.ENTER)
+
+        #print('Hello World')
+        #time.sleep(5)
+
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
         #time.sleep(1)
 
@@ -104,7 +108,6 @@ class NewVisitorTest(LiveServerTestCase):
 # She visits that URL - her to-do list is still there.
 
 # Satisfied. she goes back to sleep
-
     def test_multiple_users_can_start_lists_at_different_urls(self):
       #Edith starts a new to-do list
       self.browser.get(self.live_server_url)
@@ -127,7 +130,7 @@ class NewVisitorTest(LiveServerTestCase):
       #Francis visits the home page. There is no sign of Edith's
       # list
       self.browser.get(self.live_server_url)
-      page_text = self.browser.find_element_by_tag_name('body').txt
+      page_text = self.browser.find_element_by_tag_name('body').text
       self.assertNotIn('Buy peacock feathers', page_text)
       self.assertNotIn('make a fly', page_text) 
 
