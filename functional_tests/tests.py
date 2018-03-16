@@ -106,6 +106,18 @@ class NewVisitorTest(LiveServerTestCase):
 # explanatory text to that effect.
 #        self.fail('Finish the test!')
 # She visits that URL - her to-do list is still there.
+    def test_layout_and_styling(self):
+        #Edith goes to the home page
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        # She notices the input box is nicely centered
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+             inputbox.location['x'] + inputbox.size['width'] / 2,
+             512,
+             delta = 10
+        )
 
 # Satisfied. she goes back to sleep
     def test_multiple_users_can_start_lists_at_different_urls(self):
