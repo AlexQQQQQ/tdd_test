@@ -25,7 +25,7 @@ SECRET_KEY = '8(z_y5x!ol@g&(vr^md_!q3#7(r)%i^3=$kpncp-_c1ni58m-m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['powersimulation.com']
 
 
 # Application definition
